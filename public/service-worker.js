@@ -43,13 +43,6 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("fetch", event => {
-    if (
-        event.request.method !== "GET" ||
-        !event.request.url.startsWith(self.location.origin)
-    ) {
-        event.respondWith(fetch(event.request));
-        return;
-    }
     if (event.request.url.includes("/api/")) {
         event.respondWith(
             caches.open(RUNTIME_CACHE).then(cache => {
