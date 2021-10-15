@@ -13,10 +13,6 @@ request.onsuccess = event => {
   }
 };
 
-request.onerror = event => {
-  console.log(event.target.errorCode);
-};
-
 const saveRecord = record => {
   const transaction = db.transaction(["pending"], "readwrite");
   const store = transaction.objectStore("pending");
